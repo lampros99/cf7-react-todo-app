@@ -1,14 +1,14 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
+import type { TodoFromProps } from "../types"
 
-type Action =
-| {type: "ADD"; payload: string}
-| {type: "DELETE"; payload: number}
+// type Action =
+// | {type: "ADD"; payload: string}
+// | {type: "DELETE"; payload: number}
 
 
-type TodoFromProps = {
-    dispatch: React.Dispatch<Action>;
-}
+// type TodoFromProps = {
+//     dispatch: React.Dispatch<Action>;
+// }
 
 const TodoForm = ({dispatch}:TodoFromProps) => {
 
