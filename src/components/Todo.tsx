@@ -50,6 +50,9 @@ const getInitialTodos = () => {
                     ? {...todo, completed: !todo.completed}
                     : todo
                 );
+            
+            case "CLEAR_ALL":
+                return [];
         default:
             return state;
     }
@@ -65,15 +68,35 @@ const Todo = () => {
         localStorage.setItem("todos", JSON.stringify(todos));
     }, [todos])
 
+    const handleClearAll = () => {
+        dispatch({type: "CLEAR_ALL"})
+    }
+
     return (
         <>
         <div className="max-w-sm mx-auto p-6">
         <h1 className="text-center text-2xl">TO-DO List</h1>
         <TodoForm dispatch={dispatch}></TodoForm>
         <TodoList todos={todos} dispatch={dispatch}></TodoList>
+
+        { todos.length > 0 && (
+            <>
+
+        <div className="text-end mt-4">
+            <button
+            onClick={handleClearAll}
+            className="bg-red-600 text-white py-2 px-4 rounded" 
+            >
+            Clear All
+            </button>
         
         </div>
-        </>
+            </>
+        ) }
+
+
+    </div>
+    </>
     );
 }
 
