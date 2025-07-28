@@ -14,6 +14,7 @@ export type Action =
 
 export type TodoFromProps = {
     dispatch: React.Dispatch<Action>;
+    inputRef: React.RefObject<HTMLInputElement | null>;
 }
 
 
